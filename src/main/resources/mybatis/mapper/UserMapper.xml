@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.UserMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.User">
+		<id column="id" property="id" />
+		<result column="tel" property="tel" />
+		<result column="password" property="password" />
+		<result column="nickName" property="nickName" />
+		<result column="eMail" property="eMail" />
+		<result column="img" property="img" />
+	</resultMap>
+
+	<select id="getUserByPhone" resultMap="BaseResultMap">
+		select * from user where
+		tel=#{tel}
+	</select>
+	<select id="selectall" resultType="User">
+		select * from user
+		<where>
+			<if test="search!=null and ''!=search">
+				nickName like concat("%",#{search},"%")
+			</if>
+		</where>
+		limit #{start},#{pageSize}
+	</select>
+	<select id="selectallpage" resultType="int">
+		select count(*) from user
+		<where>
+			<if test="search!=null and ''!=search">
+				nickName like concat("%",#{search},"%")
+			</if>
+		</where>
+	</select>
+</mapper>

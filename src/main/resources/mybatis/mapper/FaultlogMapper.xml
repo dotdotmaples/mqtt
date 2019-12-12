@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.FaultlogMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.Faultlog">
+		<id column="id" property="id" />
+		<result column="recordTime" property="recordTime" />
+		<result column="equipmentName" property="equipmentName" />
+		<result column="equipmentNumber" property="equipmentNumber" />
+		<result column="content" property="content" />
+		<result column="isread" property="isread" />
+	</resultMap>
+
+	<select id="faulyloglist" resultMap="BaseResultMap">
+		select * from faultlog
+		<where>
+			<if test="equipmentNumber!=null and ''!=equipmentNumber">
+				equipmentNumber=#{equipmentNumber}
+			</if>
+		</where>
+		order by recordTime desc
+		limit #{start},#{pageSize}
+	</select>
+	<select id="faulylogListByUserId" resultMap="BaseResultMap">
+		SELECT * FROM `faultlog` WHERE equipmentNumber IN (SELECT mac FROM `equipmentlist` WHERE userId = #{userId});
+	</select>
+	<select id="faulyloglistPage" resultType="int">
+		select count(*) from faultlog
+		<where>
+			<if test="equipmentNumber!=null and ''!=equipmentNumber">
+				equipmentNumber=#{equipmentNumber}
+			</if>
+		</where>
+	</select>
+	<delete id="deletfaulylog">
+		delete from faultlog where id = #{id}
+	</delete>
+	<update id="updatefaulyIsread">
+		update faultlog set isread=2 where
+		equipmentNumber=#{equipmentNumber}
+	</update>
+	<select id="getNumberFault" resultType="int">
+		select ifNull(count(*),0)
+		from faultlog where equipmentNumber=#{mac} and isread=1
+	</select>
+	<delete id="deletfaulylogbyMac">
+		delete from faultlog where equipmentNumber = #{mac}
+	</delete>
+</mapper>

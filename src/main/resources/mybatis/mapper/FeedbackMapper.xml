@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.FeedbackMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.Feedback">
+		<id column="id" property="id" />
+		<result column="content" property="content" />
+		<result column="userName" property="userName" />
+		<result column="userTel" property="userTel" />
+		<result column="eMail" property="eMail" />
+		<result column="reply" property="reply" />
+		<result column="userId" property="userId" />
+	</resultMap>
+
+	<select id="getfeedbackList" resultMap="BaseResultMap">
+		select * from feedback
+		<where>
+			<if test="search!=null and ''!=search">
+				(userName like concat("%",#{search},"%")
+				or content like concat("%",#{search},"%")
+				or userTel=#{search}
+				or eMail=#{search}
+				)
+			</if>
+			<if test="userId!=null">
+				and userId=#{userId}
+			</if>
+		</where>
+		limit #{start},#{pageSize}
+	</select>
+	<select id="getfeedbackListPage" resultType="int">
+		select count(*) from feedback
+		<where>
+			<if test="search!=null and ''!=search">
+				(userName like concat("%",#{search},"%")
+				or content like concat("%",#{search},"%")
+				or userTel=#{search}
+				or eMail=#{search}
+				)
+			</if>
+			<if test="userId!=null">
+				and userId=#{userId}
+			</if>
+		</where>
+	</select>
+</mapper>

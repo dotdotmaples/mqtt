@@ -1,0 +1,96 @@
+2019-06-28 17:26:04,621:INFO restartedMain (StartupInfoLogger.java:50) - Starting MqttGprsApplication on SC-201705031059 with PID 14420 (E:\EclipseWorkSpace\yang-y\mqtt-gprs\target\classes started by Administrator in E:\EclipseWorkSpace\yang-y\mqtt-gprs)
+2019-06-28 17:26:04,632:INFO restartedMain (SpringApplication.java:680) - No active profile set, falling back to default profiles: default
+2019-06-28 17:26:04,724:INFO restartedMain (AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1975f3a: startup date [Fri Jun 28 17:26:04 CST 2019]; root of context hierarchy
+2019-06-28 17:26:09,013:INFO restartedMain (TomcatWebServer.java:91) - Tomcat initialized with port(s): 8899 (http)
+2019-06-28 17:26:09,042:INFO restartedMain (DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-8899"]
+2019-06-28 17:26:09,066:INFO restartedMain (DirectJDKLog.java:180) - Starting service [Tomcat]
+2019-06-28 17:26:09,067:INFO restartedMain (DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.34
+2019-06-28 17:26:09,086:INFO localhost-startStop-1 (DirectJDKLog.java:180) - Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2019-06-28 17:26:09,086:INFO localhost-startStop-1 (DirectJDKLog.java:180) - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2019-06-28 17:26:09,086:INFO localhost-startStop-1 (DirectJDKLog.java:180) - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2019-06-28 17:26:10,161:INFO localhost-startStop-1 (DirectJDKLog.java:180) - OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2019-06-28 17:26:10,373:INFO localhost-startStop-1 (DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+2019-06-28 17:26:10,374:INFO localhost-startStop-1 (ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 5655 ms
+2019-06-28 17:26:10,500:INFO localhost-startStop-1 (ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+2019-06-28 17:26:10,508:INFO localhost-startStop-1 (AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-06-28 17:26:10,508:INFO localhost-startStop-1 (AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-06-28 17:26:10,509:INFO localhost-startStop-1 (AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-06-28 17:26:10,509:INFO localhost-startStop-1 (AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+2019-06-28 17:26:11,113:INFO restartedMain (DruidDataSource.java:928) - {dataSource-1} inited
+2019-06-28 17:26:13,301:INFO restartedMain (AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-28 17:26:13,752:INFO restartedMain (RequestMappingHandlerAdapter.java:588) - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1975f3a: startup date [Fri Jun 28 17:26:04 CST 2019]; root of context hierarchy
+2019-06-28 17:26:13,898:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/admin/updatePassword]}" onto public java.lang.Object gprs.com.controller.AdminController.updatePassword(java.lang.Integer,java.lang.String)
+2019-06-28 17:26:13,900:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/admin/addAdmin]}" onto public java.lang.Object gprs.com.controller.AdminController.addAdmin(java.lang.String,java.lang.String)
+2019-06-28 17:26:13,901:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/admin/adminlist]}" onto public java.lang.Object gprs.com.controller.AdminController.adminlist()
+2019-06-28 17:26:13,905:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/admin/login]}" onto public java.lang.Object gprs.com.controller.AdminController.login(java.lang.String,java.lang.String)
+2019-06-28 17:26:13,906:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/admin/deleteAdmin]}" onto public java.lang.Object gprs.com.controller.AdminController.deleteAdmin(java.lang.Integer)
+2019-06-28 17:26:13,907:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/electrical/electricalList]}" onto public java.lang.Object gprs.com.controller.ElectricalFrontController.electricalList(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2019-06-28 17:26:13,908:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/electricitylog/electricityloglist]}" onto public java.lang.Object gprs.com.controller.ElectricitylogFrontController.electricityloglist(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2019-06-28 17:26:13,916:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/updateEquipmentName]}" onto public java.lang.Object gprs.com.controller.EquipmentlistFrontController.updateEquipmentName(java.lang.String,java.lang.Integer,java.lang.String)
+2019-06-28 17:26:13,918:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/updateUmengtoken]}" onto public java.lang.Object gprs.com.controller.EquipmentlistFrontController.updateEquipmentName(java.lang.String,java.lang.String)
+2019-06-28 17:26:13,925:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/deleteEquipment]}" onto public java.lang.Object gprs.com.controller.EquipmentlistFrontController.updateEquipmentName(java.lang.String,java.lang.Integer)
+2019-06-28 17:26:13,926:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/closeequipment]}" onto public java.lang.Object gprs.com.controller.EquipmentlistFrontController.closeequipment(java.lang.String,java.lang.String)
+2019-06-28 17:26:13,928:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/openequipment]}" onto public java.lang.Object gprs.com.controller.EquipmentlistFrontController.openequipment(java.lang.String,java.lang.String)
+2019-06-28 17:26:13,929:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/queryWifipas]}" onto public java.lang.Object gprs.com.controller.EquipmentlistFrontController.queryWifipas(java.lang.String,java.lang.String)
+2019-06-28 17:26:13,930:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/equipmentlist]}" onto public java.lang.Object gprs.com.controller.EquipmentlistFrontController.equipmentlist(java.lang.String,java.lang.String)
+2019-06-28 17:26:13,930:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/addEquipmentlist]}" onto public java.lang.Object gprs.com.controller.EquipmentlistFrontController.addEquipmentlist(java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String)
+2019-06-28 17:26:13,932:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/faultlog/getFaultlogNumber]}" onto public java.lang.Object gprs.com.controller.FaultlogFrontController.getFaultlogNumber(java.lang.String)
+2019-06-28 17:26:13,933:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/faultlog/getfaulyloglist]}" onto public java.lang.Object gprs.com.controller.FaultlogFrontController.getfaulyloglist(java.lang.Integer,java.lang.Integer,java.lang.String)
+2019-06-28 17:26:13,934:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/faultlog/deletfaulylogbyMac]}" onto public java.lang.Object gprs.com.controller.FaultlogFrontController.deletfaulylog(java.lang.String)
+2019-06-28 17:26:13,936:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/faultlog/faulyloglist]}" onto public java.lang.Object gprs.com.controller.FaultlogFrontController.faulyloglist(java.lang.Integer,java.lang.Integer,java.lang.String)
+2019-06-28 17:26:13,940:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/feedback/reFeedback]}" onto public java.lang.Object gprs.com.controller.FeedbackFrontController.reFeedback(java.lang.String,java.lang.Integer)
+2019-06-28 17:26:13,940:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/feedback/userFeedbackList]}" onto public java.lang.Object gprs.com.controller.FeedbackFrontController.userFeedbackList(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.String)
+2019-06-28 17:26:13,941:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/feedback/addFeedback]}" onto public java.lang.Object gprs.com.controller.FeedbackFrontController.addFeedback(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2019-06-28 17:26:13,942:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/feedback/feedbackList]}" onto public java.lang.Object gprs.com.controller.FeedbackFrontController.feedbackList(java.lang.String,java.lang.Integer,java.lang.Integer)
+2019-06-28 17:26:13,942:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/help/helpDetails]}" onto public java.lang.Object gprs.com.controller.HelpFrontController.helpDetails(java.lang.Integer)
+2019-06-28 17:26:13,943:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/help/addOrUpdateHelp]}" onto public java.lang.Object gprs.com.controller.HelpFrontController.addOrUpdateHelp(java.lang.Integer,java.lang.String)
+2019-06-28 17:26:13,945:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/msglog/msgloglist]}" onto public java.lang.Object gprs.com.controller.MsglogFrontController.msgloglist(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.String)
+2019-06-28 17:26:13,946:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/msglog/forwardMsg]}" onto public java.lang.Object gprs.com.controller.MsglogFrontController.forwardMsg(java.lang.String,java.lang.Double)
+2019-06-28 17:26:13,946:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/msglog/getele]}" onto public java.lang.Object gprs.com.controller.MsglogFrontController.getele(java.lang.String)
+2019-06-28 17:26:13,947:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/msglog/newMsglog]}" onto public java.lang.Object gprs.com.controller.MsglogFrontController.newmsglog(java.lang.String)
+2019-06-28 17:26:13,947:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/msglog/electricalSetup]}" onto public java.lang.Object gprs.com.controller.MsglogFrontController.electricalSetup(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2019-06-28 17:26:13,948:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/msglog/deletemsglog]}" onto public java.lang.Object gprs.com.controller.MsglogFrontController.deletemsglog(java.lang.String)
+2019-06-28 17:26:13,948:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/msglog/instructions]}" onto public java.lang.Object gprs.com.controller.MsglogFrontController.instructions(java.lang.String,java.lang.Integer)
+2019-06-28 17:26:13,951:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/online]}" onto public java.lang.Object gprs.com.controller.OtherController.online()
+2019-06-28 17:26:13,953:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/home]}" onto public void gprs.com.controller.Test.home(org.springframework.ui.Model) throws java.lang.Exception
+2019-06-28 17:26:13,953:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/test]}" onto public java.lang.Object gprs.com.controller.Test.xx()
+2019-06-28 17:26:13,958:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/uploadImgbs]}" onto private java.lang.Object gprs.com.controller.UploadController.uploadImgbs(javax.servlet.http.HttpServletRequest,java.lang.String)
+2019-06-28 17:26:13,961:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/user/userInfo]}" onto public java.lang.Object gprs.com.controller.UserFrontController.userInfo(java.lang.String)
+2019-06-28 17:26:13,962:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/user/updateUser]}" onto public java.lang.Object gprs.com.controller.UserFrontController.upadteUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2019-06-28 17:26:13,962:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/user/userlist]}" onto public java.lang.Object gprs.com.controller.UserFrontController.userlist(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.String)
+2019-06-28 17:26:13,963:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/user/userLogin]}" onto public java.lang.Object gprs.com.controller.UserFrontController.userLogin(java.lang.String,java.lang.String)
+2019-06-28 17:26:13,963:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/user/regUser]}" onto public java.lang.Object gprs.com.controller.UserFrontController.regUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws gprs.com.exception.MyException
+2019-06-28 17:26:13,965:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/back/user/updatePassword]}" onto public java.lang.Object gprs.com.controller.UserFrontController.updatePassword(java.lang.String,java.lang.String,java.lang.Integer)
+2019-06-28 17:26:13,967:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/front/user/updatePassword]}" onto public java.lang.Object gprs.com.controller.UserFrontController.updatePassword(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2019-06-28 17:26:13,976:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-06-28 17:26:13,978:INFO restartedMain (AbstractHandlerMethodMapping.java:549) - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-06-28 17:26:14,059:INFO restartedMain (AbstractUrlHandlerMapping.java:373) - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-28 17:26:14,060:INFO restartedMain (AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-28 17:26:14,491:INFO restartedMain (SpringTemplateLoader.java:62) - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1975f3a: startup date [Fri Jun 28 17:26:04 CST 2019]; root of context hierarchy] and template loader path [classpath:templates/]
+2019-06-28 17:26:14,493:INFO restartedMain (FreeMarkerConfigurer.java:131) - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2019-06-28 17:26:14,908:INFO restartedMain (StdSchedulerFactory.java:1172) - Using default implementation for ThreadExecutor
+2019-06-28 17:26:14,941:INFO restartedMain (SchedulerSignalerImpl.java:61) - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2019-06-28 17:26:14,942:INFO restartedMain (QuartzScheduler.java:240) - Quartz Scheduler v.2.2.3 created.
+2019-06-28 17:26:14,944:INFO restartedMain (RAMJobStore.java:155) - RAMJobStore initialized.
+2019-06-28 17:26:14,946:INFO restartedMain (QuartzScheduler.java:305) - Scheduler meta-data: Quartz Scheduler (v2.2.3) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2019-06-28 17:26:14,949:INFO restartedMain (StdSchedulerFactory.java:1327) - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2019-06-28 17:26:14,949:INFO restartedMain (StdSchedulerFactory.java:1331) - Quartz scheduler version: 2.2.3
+2019-06-28 17:26:14,950:INFO restartedMain (QuartzScheduler.java:2311) - JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@78f6e06e
+2019-06-28 17:26:15,191:INFO restartedMain (OptionalLiveReloadServer.java:57) - LiveReload server is running on port 35729
+2019-06-28 17:26:15,273:INFO restartedMain (MBeanExporter.java:433) - Registering beans for JMX exposure on startup
+2019-06-28 17:26:15,281:INFO restartedMain (MBeanExporter.java:895) - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-06-28 17:26:15,349:INFO restartedMain (MBeanExporter.java:668) - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-06-28 17:26:15,358:INFO restartedMain (DefaultLifecycleProcessor.java:356) - Starting beans in phase 2147483647
+2019-06-28 17:26:15,359:INFO restartedMain (SchedulerFactoryBean.java:706) - Starting Quartz Scheduler now
+2019-06-28 17:26:15,359:INFO restartedMain (QuartzScheduler.java:575) - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2019-06-28 17:26:15,379:INFO restartedMain (DirectJDKLog.java:180) - Starting ProtocolHandler ["http-nio-8899"]
+2019-06-28 17:26:15,386:INFO restartedMain (DirectJDKLog.java:180) - Using a shared selector for servlet write/read
+2019-06-28 17:26:15,422:INFO restartedMain (TomcatWebServer.java:206) - Tomcat started on port(s): 8899 (http) with context path ''
+2019-06-28 17:26:15,433:INFO restartedMain (StartupInfoLogger.java:59) - Started MqttGprsApplication in 11.512 seconds (JVM running for 13.24)

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.EquipmentlistMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.Equipmentlist">
+		<id column="id" property="id" />
+		<result column="mac" property="mac" />
+		<result column="initmac" property="initmac" />
+		<result column="lastTime" property="lastTime" />
+		<result column="userId" property="userId" />
+		<result column="wifimac" property="wifimac" />
+		<result column="type" property="type" />
+		<result column="devicename" property="devicename" />
+		<result column="eleset" property="eleset" />
+	</resultMap>
+
+	<select id="selectByuserId" resultMap="BaseResultMap">
+		select * from equipmentlist
+		where userId=#{userId}
+		<if test="wifimac!=null and ''!=wifimac">
+			or (wifimac=#{wifimac} and type=1)
+		</if>
+		GROUP BY mac
+	</select>
+	<update id="updateEquip">
+		update equipmentlist set devicename=#{deviceName}
+		where mac=#{mac}
+	</update>
+	<update id="upadteEleset">
+		update equipmentlist set eleset=#{eleset} where
+		mac=#{mac}
+	</update>
+	<select id="selectbyMac" resultType="Equipmentlist">
+		select * from equipmentlist
+		where mac=#{mac} limit 0,1
+	</select>
+	<select id="selectByMilde" resultMap="BaseResultMap">
+		SELECT * FROM equipmentlist
+		el WHERE id IN (SELECT equipId FROM user_equipment_modle WHERE userId
+		= #{userId})
+		OR (el.`userId` = #{userId} AND el.`mac` IN (
+		SELECT e.`clientid` FROM electrical e WHERE e.`type` = 2))
+	</select>
+	<delete id="deletebymilde">
+		delete from user_equipment_modle where
+		userId=#{userId}
+	</delete>
+	<insert id="insertMidel">
+		insert into user_equipment_modle(userId,equipId,name)
+		values(#{userId},#{id},#{name})
+	</insert>
+
+	<select id="selectBymidel" resultType="UserEquipmentModle">
+		select * from
+		user_equipment_modle where userId=#{userId} and equipId=#{id}
+	</select>
+	<update id="updateModel">
+		update user_equipment_modle set name=#{name} where
+		userId=#{userId} and equipId=#{id}
+	</update>
+	<update id="deleteEquipment">
+		delete from user_equipment_modle where
+		userId=#{userId} and equipId=#{id}
+	</update>
+	<update id="updateUmengtoken">
+		update user_equipment_modle set umengToken=#{umToken}
+		where userId=#{userId}
+	</update>
+	<update id="updatebymactype">
+		update equipmentlist set type=#{type} where
+		mac=#{mac}
+	</update>
+	<delete id="deleteEquipmentbyId">
+		delete from equipmentlist where id=#{id}
+		<if test="userId!=null">
+			and userId = #{userId}
+		</if>
+	</delete>
+	<select id="selectBywifiMac" resultType="Wifipas">
+		select * from wifipas
+		where wifimac=#{wifiMac} limit 0,1
+	</select>
+	<insert id="insertWifiMac">
+		insert into wifipas(wifimac,password)
+		values(#{wifiMac},#{wifipas})
+	</insert>
+	<update id="updateWifiMac">
+		update wifipas set password=#{wifipas} where id=#{id}
+	</update>
+	<select id="selectMacList" resultType="java.lang.String">
+		SELECT mac FROM equipmentlist e GROUP BY mac
+	</select>
+	<select id="listByMac" resultMap="BaseResultMap">
+		select * from equipmentlist where mac = #{mac}
+	</select>
+</mapper>

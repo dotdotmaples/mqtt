@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.ElectricitylogMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.Electricitylog">
+		<id column="id" property="id" />
+		<result column="equipmentName" property="equipmentName" />
+		<result column="equipmentNumber" property="equipmentNumber" />
+		<result column="logTime" property="logTime" />
+		<result column="electricNumber" property="electricNumber" />
+		<result column="signal" property="signal" />
+	</resultMap>
+
+	<!-- <select id="selectElectricityloglist" resultMap="BaseResultMap"> select 
+		* from electricitylog <where> <if test="equipmentNumber!=null and ''!=equipmentNumber"> 
+		equipmentNumber = #{equipmentNumber} </if> <if test="yesterday!=null and 
+		''!=yesterday"> and logTime &gt;= #{yesterday} </if> </where> </select> -->
+	<select id="selectElectricityloglist" resultMap="BaseResultMap">
+		select * from electricitylog
+		<where>
+			<if test="equipmentNumber!=null and ''!=equipmentNumber">
+				equipmentNumber = #{equipmentNumber}
+			</if>
+			<if test="searchTime!=null and ''!=searchTime">
+				and logTime like concat("%",#{searchTime},"%")
+			</if>
+		</where>
+		order by logTime asc
+	</select>
+	<select id="selectElectricityloglistPage" resultType="int">
+		select count(*) from electricitylog
+		<where>
+			<if test="equipmentNumber!=null and ''!=equipmentNumber">
+				equipmentNumber = #{equipmentNumber}
+			</if>
+			<if test="searchTime!=null and ''!=searchTime">
+				and logTime like concat("%",#{searchTime},"%")
+			</if>
+		</where>
+	</select>
+
+	<!-- 根据设备编号，查询gprs设备信号强度、设备编号 -->
+	<select id="selectSignalByMac" resultType="java.util.Map">
+		SELECT e.`equipmentNumber`, e2.`state`,
+		(SELECT e1.`signal` FROM electricitylog e1 WHERE e1.id = MAX(e.`id`))
+		'signal', e2.`type`,
+		(SELECT IFNULL(COUNT(*),0) FROM faultlog WHERE
+		equipmentNumber=e.`equipmentNumber` AND isread=1) faultlogNum
+		FROM electricitylog e
+		INNER JOIN electrical e2 ON e.`equipmentNumber` = e2.clientid
+		GROUP BY e.`equipmentNumber`
+		HAVING e.`equipmentNumber` IN
+		<foreach collection="mac" open="(" close=")" item="m"
+			separator=",">
+			#{m}
+		</foreach>
+	</select>
+
+</mapper>

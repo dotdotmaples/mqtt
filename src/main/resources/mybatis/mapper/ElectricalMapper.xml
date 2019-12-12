@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.ElectricalMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.Electrical">
+		<id column="id" property="id" />
+		<result column="clientid" property="clientid" />
+		<result column="ip" property="ip" />
+		<result column="state" property="state" />
+		<result column="type" property="type" />
+	</resultMap>
+
+	<select id="selectbyclientid" resultMap="BaseResultMap">
+		select * from electrical
+		e WHERE e.`clientid` = #{clientid}
+		<if test="type != -1">
+			AND e.`type` = #{type}
+		</if>
+	</select>
+	<update id="updateByState">
+		update electrical set state=#{state} where
+		clientid=#{clientid}
+	</update>
+	<select id="selecteleList" resultMap="BaseResultMap">
+		select * from electrical
+		<where>
+			<if test="state!=null">
+				state=#{state}
+			</if>
+			<if test="clientid!=null and ''!=clientid">
+				and clientid like concat("%",#{clientid},"%")
+			</if>
+		</where>
+		order by onlineDate desc
+		limit #{start},#{pageSize}
+	</select>
+	<select id="selecteleListPage" resultType="int">
+		select count(*) from electrical
+		<where>
+			<if test="state!=null">
+				state=#{state}
+			</if>
+			<if test="clientid!=null and ''!=clientid">
+				and clientid like concat("%",#{clientid},"%")
+			</if>
+		</where>
+	</select>
+	<select id="selectbyclientidandstate" resultType="Electrical">
+		select * from
+		electrical where clientid=#{clientid} limit 0,1
+	</select>
+	<select id="getByMac" resultType="UserEquipmentModle">
+		select * from
+		user_equipment_modle where equipId in (select id from equipmentlist
+		where mac=#{mac}) GROUP BY umengToken
+	</select>
+	<update id="updateByMaconline">
+		update electrical set state=1 where clientid=#{mac}
+	</update>
+	<update id="updateByMaconline1">
+		update electrical set state=2 where clientid=#{mac}
+	</update>
+	<select id="selectlistbystate" resultType="Electrical">
+		select * from
+		electrical where state=1
+	</select>
+	<delete id="deleteByClientId">
+		DELETE FROM `electrical` WHERE clientid = #{clientId}
+	</delete>
+</mapper>

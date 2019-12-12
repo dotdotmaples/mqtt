@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.AdminMapper">
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.Admin">
+		<id column="id" property="id" />
+		<result column="account" property="account" />
+		<result column="password" property="pasword" />
+		<result column="token" property="token" />
+		<result column="roleId" property="roleId" />
+	</resultMap>
+
+	<select id="selectByAccount" resultType="Admin">
+		select * from admin
+		where account=#{account}
+	</select>
+	<select id="getAdminbyToken" resultType="Admin">
+		select * from admin
+		where token=#{token}
+	</select>
+
+</mapper>

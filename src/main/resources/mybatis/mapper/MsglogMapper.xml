@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.MsglogMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.Msglog">
+		<id column="id" property="id" />
+		<result column="topic" property="topic" />
+		<result column="msg" property="msg" />
+		<result column="creatTime" property="creatTime" />
+		<result column="type" property="type" />
+	</resultMap>
+
+	<select id="newmsglog" resultType="Msglog">
+		select * from msglog where
+		topic=#{topic} and LENGTH(msg)>128 order by id desc limit 0,1
+	</select>
+	<select id="newmsglogbydate" resultType="Msglog">
+		select * from msglog
+		where topic=#{topic} and LENGTH(msg)>128 and creatTime &gt;
+		#{creatTime} order by id desc limit 0,1
+	</select>
+	<select id="selectByall" resultType="Msglog">
+		select * from msglog
+		<where>
+			<if test="topic1!=null">
+				topic=#{topic1} or topic=#{topic2}
+			</if>
+			<if test="searchdate!=null and ''!=searchdate">
+				and creatTime like concat("%",#{searchdate},"%")
+			</if>
+		</where>
+		order by creatTime desc
+		limit #{start},#{pageSize}
+	</select>
+	<select id="selectByallPage" resultType="int">
+		select count(*) from msglog
+		<where>
+			<if test="topic1!=null">
+				topic=#{topic1} or topic=#{topic2}
+			</if>
+			<if test="searchdate!=null and ''!=searchdate">
+				and creatTime like concat("%",#{searchdate},"%")
+			</if>
+		</where>
+	</select>
+	<delete id="deletemsglog">
+		delete from msglog where id=#{id}
+	</delete>
+	<delete id="deletebydate">
+		delete from msglog where creatTime &lt; #{uppermouth}
+	</delete>
+</mapper>

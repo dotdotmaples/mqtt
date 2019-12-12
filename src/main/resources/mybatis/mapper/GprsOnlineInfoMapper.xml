@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gprs.com.mapper.GprsOnlineInfoMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="gprs.com.entity.GprsOnlineInfo">
+		<result column="imei" property="imei" />
+		<result column="start_time" property="startTime" />
+		<result column="state" property="state" />
+	</resultMap>
+
+	<insert id="insertOrUpdateOne">
+	   INSERT INTO gprs_online_info(imei,start_time,state) VALUE(#{imei}, #{startTime}, #{state}) ON DUPLICATE KEY UPDATE state=#{state}, start_time=#{startTime}
+	</insert>
+
+    <select id="selectImeiList" resultType="java.lang.String">
+        SELECT g.`imei` FROM gprs_online_info g 
+        where 1=1
+        <if test="state != null">
+            and g.`state` = #{state}
+        </if>
+        <if test="time != null">
+            <!--  and g.`start_time` &gt; #{time}  -->
+            and start_time>=DATE_SUB(#{time},INTERVAL 3 MINUTE);
+        </if>
+        <if test="userId != null">
+             and g.`imei` NOT IN (SELECT e.`mac` FROM equipmentlist e WHERE e.`userId` = #{userId}  OR e.`type` = 2)
+        </if>
+    </select>
+
+    <select id="selectListByImei" resultMap="BaseResultMap">
+        SELECT * FROM gprs_online_info g WHERE g.`imei` = #{imei}
+    </select>
+    
+    <update id="updateStateByImei">
+    	UPDATE gprs_online_info SET state = #{state}  WHERE `imei` = #{imei};
+    </update>
+
+</mapper>
